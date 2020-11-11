@@ -7,6 +7,16 @@ export default class Slider {
     }
 
     showSlides(n) {
+        
+        try {
+            const teacher = document.querySelector('.hanson');
+            teacher.classList.add('animated', 'slideInUp');
+            teacher.style.display = 'none';
+            
+            if( this.slideIndex === 3 ) setTimeout(() => teacher.style.display = 'block', 3000);
+        } catch(err){}
+
+
         if (n > this.slides.length) {
             this.slideIndex = 1;
         }
