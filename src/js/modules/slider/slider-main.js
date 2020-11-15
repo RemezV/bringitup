@@ -28,19 +28,38 @@ export default class MainSlider extends Slider {
     plusSlides(n) {
         this.showSlides(this.slideIndex += n);
     }
-    render() {
-        this.btns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                this.plusSlides(1);
-            });
-
-            btn.parentNode.previousElementSibling.addEventListener('click', (e) => {
+    bindTriggers() {
+        document.querySelectorAll('.prev').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
                 e.preventDefault();
-                this.slideIndex = 1;
-                this.showSlides(this.slideIndex);
+                this.plusSlides(-1);
             });
         });
-
-        this.showSlides(this.slideIndex);
+        document.querySelectorAll('.nextmodule').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                this.plusSlides(1);
+            });
+        });
+    }
+    render() {
+        if (this.container) {
+            this.btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    this.plusSlides(1);
+                });
+    
+                btn.parentNode.previousElementSibling.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.slideIndex = 1;
+                    this.showSlides(this.slideIndex);
+                });
+            });
+    
+            this.showSlides(this.slideIndex);
+        }
+        this.bindTriggers();
     }
 }

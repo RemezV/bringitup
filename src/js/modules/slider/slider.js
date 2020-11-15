@@ -9,7 +9,9 @@ export default class Slider {
         autoplay = false
         } = {}) {
         this.container = document.querySelector(container);
-        this.slides = Array.from(this.container.children).filter(slide => slide.localName != 'button');
+        try {
+            this.slides = Array.from(this.container.children).filter(slide => slide.localName != 'button');
+        } catch (error) {}
         this.btns = document.querySelectorAll(btns);
         this.prev = document.querySelector(prev);
         this.next = document.querySelector(next);

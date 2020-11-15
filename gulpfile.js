@@ -52,16 +52,16 @@ gulp.task("copy-assets", () => {
 });
 
 gulp.task("watch", () => {
-    browsersync.init({
-        server: {
-            baseDir: "./dist/",
-            serveStaticOptions: {
-                extensions: ["html"]
-            }
-        },
-		port: 4000,
-		notify: true
-    });
+    // browsersync.init({
+    //     server: {
+    //         baseDir: "./dist/",
+    //         serveStaticOptions: {
+    //             extensions: ["html"]
+    //         }
+    //     },
+		// port: 4000,
+		// notify: true
+    // });
     
     gulp.watch("./src/*.html", gulp.parallel("copy-html"));
     gulp.watch("./src/assets/**/*.*", gulp.parallel("copy-assets"));

@@ -1,12 +1,14 @@
 export default class Defferences {
     constructor(oldColomn, newColomn, points) {
-        this.points = points;
-        this.oldColomn = document.querySelector(oldColomn);
-        this.newColomn = document.querySelector(newColomn);
-        this.oldPoints = this.oldColomn.querySelectorAll(points);
-        this.newPoints = this.newColomn.querySelectorAll(points);
-        this.oldCounter = 0;
-        this.newCounter = 0;
+        try {
+            this.points = points;
+            this.oldColomn = document.querySelector(oldColomn);
+            this.newColomn = document.querySelector(newColomn);
+            this.oldPoints = this.oldColomn.querySelectorAll(points);
+            this.newPoints = this.newColomn.querySelectorAll(points);
+            this.oldCounter = 0;
+            this.newCounter = 0;
+        } catch(error){}
     }
     hidePoints(whichPoints) {
         whichPoints.forEach((point, i, arr) => {
@@ -24,9 +26,11 @@ export default class Defferences {
     }
 
     init() {
-        this.hidePoints(this.oldPoints);
-        this.hidePoints(this.newPoints);
-        this.bindTriggers(this.oldColomn, this.oldPoints, this.oldCounter);
-        this.bindTriggers(this.newColomn, this.newPoints, this.newCounter);
+        try {
+            this.hidePoints(this.oldPoints);
+            this.hidePoints(this.newPoints);
+            this.bindTriggers(this.oldColomn, this.oldPoints, this.oldCounter);
+            this.bindTriggers(this.newColomn, this.newPoints, this.newCounter);
+        } catch(error){}
     }
 }

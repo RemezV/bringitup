@@ -2,10 +2,17 @@ import MainSlider from './modules/slider/slider-main';
 import VideoPlayer from './modules/playVideo';
 import MiniSlider from './modules/slider/slider-mini';
 import Differences from './modules/differences';
+import Form from './modules/form';
 
 window.addEventListener('DOMContentLoaded', () => {
     const sliderMain = new MainSlider({btns: '.next', container: '.page'});
     sliderMain.render();
+
+    const moduleSlider = new MainSlider({
+        container: '.moduleapp',
+        btns: '.next'
+    });
+    moduleSlider.render();
 
     const showupSlider = new MiniSlider({
         container: '.showup__content-slider',
@@ -38,4 +45,6 @@ window.addEventListener('DOMContentLoaded', () => {
     player.init();
 
     new Differences('.officerold', '.officernew', '.officer__card-item').init();
+
+    new Form('form', 'assets/question.php').init();
 });
