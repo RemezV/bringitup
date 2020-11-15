@@ -4,6 +4,7 @@ import MiniSlider from './modules/slider/slider-mini';
 import Differences from './modules/differences';
 import Form from './modules/form';
 import ShowInfo from './modules/showInfo';
+import Download from './modules/download';
 
 window.addEventListener('DOMContentLoaded', () => {
     const sliderMain = new MainSlider({btns: '.next', container: '.page'});
@@ -50,4 +51,6 @@ window.addEventListener('DOMContentLoaded', () => {
     new Form('form', 'assets/question.php').init();
 
     new ShowInfo('.plus').init();
+
+    new Download('.download').init();
 });
