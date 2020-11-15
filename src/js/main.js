@@ -3,6 +3,7 @@ import VideoPlayer from './modules/playVideo';
 import MiniSlider from './modules/slider/slider-mini';
 import Differences from './modules/differences';
 import Form from './modules/form';
+import ShowInfo from './modules/showInfo';
 
 window.addEventListener('DOMContentLoaded', () => {
     const sliderMain = new MainSlider({btns: '.next', container: '.page'});
@@ -47,4 +48,6 @@ window.addEventListener('DOMContentLoaded', () => {
     new Differences('.officerold', '.officernew', '.officer__card-item').init();
 
     new Form('form', 'assets/question.php').init();
+
+    new ShowInfo('.plus').init();
 });
