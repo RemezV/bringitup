@@ -4,7 +4,6 @@ import MiniSlider from './modules/slider/slider-mini';
 import Differences from './modules/differences';
 import Form from './modules/form';
 import ShowInfo from './modules/showInfo';
-import Download from './modules/download';
 
 window.addEventListener('DOMContentLoaded', () => {
     const sliderMain = new MainSlider({btns: '.next', container: '.page'});
@@ -43,6 +42,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }); 
     feedSlider.init();
 
+    const sliderTest = new MainSlider({
+        container: '.moduleapp',
+        btns: ['.next0', '.prev0']
+    });
+    sliderTest.render();
+
+
     new VideoPlayer('.showup .play', '.overlay').init();
     new VideoPlayer('.module__video-item .play', '.overlay').init();
 
@@ -52,5 +58,4 @@ window.addEventListener('DOMContentLoaded', () => {
 
     new ShowInfo('.plus').init();
 
-    new Download('.download').init();
 });
